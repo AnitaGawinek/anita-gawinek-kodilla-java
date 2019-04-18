@@ -10,19 +10,15 @@ public class LibraryUser {
         this.lastName = lastName;
         this.peselId = peselId;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public String getPeselId() {
         return peselId;
     }
-
     @Override
     public String toString() {
         return "LibraryUser{" +
@@ -31,7 +27,6 @@ public class LibraryUser {
                 ", peselId='" + peselId + '\'' +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,9 +37,7 @@ public class LibraryUser {
         if (!firstName.equals(that.firstName)) return false;
         if (!lastName.equals(that.lastName)) return false;
         return peselId.equals(that.peselId);
-
     }
-
     @Override
     public int hashCode() {
         int result = firstName.hashCode();
