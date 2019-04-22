@@ -1,11 +1,19 @@
 package com.kodilla.stream;
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.Processor;
+import com.kodilla.stream.beautifier.PoemBeautifier;
 
 public class StreamMain {
     public static void main(String[] args) {
-        Processor processor = new Processor();
-        ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-        processor.execute(executeSaySomething);
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+
+        poemBeautifier.beautify("This is my beautiful text!", poem ->
+                ".:ABC:. " + poem + " .:ABC:.");
+        poemBeautifier.beautify("This is my beautiful text!", poem ->
+                poem.toUpperCase());
+        poemBeautifier.beautify("This is my beautiful text!", poem ->
+                poem.concat(" :)"));
+        poemBeautifier.beautify("This is my beautiful text!", poem ->
+                poem.replaceAll(" ", "-"));
+        poemBeautifier.beautify("This is my beautiful text!", poem ->
+                "*||* " + poem.toUpperCase().replace("BEAUTIFUL TEXT!", "BEST TEXT! :)") + " *||*" );
     }
 }
