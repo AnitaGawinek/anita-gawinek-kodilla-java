@@ -1,7 +1,5 @@
 package com.kodilla.exception.test;
 
-import java.util.HashMap;
-
 public class Flight {
     private String departureAirport;
     private String arrivalAirport;
