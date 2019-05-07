@@ -37,5 +37,4 @@ public final class Continent {
     public int hashCode() {
         return continentName.hashCode();
     }
-
 }
