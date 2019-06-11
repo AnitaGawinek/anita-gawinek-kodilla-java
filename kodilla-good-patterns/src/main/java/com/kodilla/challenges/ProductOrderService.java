@@ -1,9 +1,15 @@
 package com.kodilla.challenges;
 
-import java.time.LocalDateTime;
 
 public class ProductOrderService {
-    public boolean isOrdered(final User user, final LocalDateTime orderDate){
-        return true;
+    private NotificationService notification;
+
+    public ProductOrderService(NotificationService notification) {
+        this.notification = notification;
+    }
+
+    public void order(final User user, final Product product){
+        product.setAvailable(false);
+        notification.sendNotification(user, product);
     }
 }
