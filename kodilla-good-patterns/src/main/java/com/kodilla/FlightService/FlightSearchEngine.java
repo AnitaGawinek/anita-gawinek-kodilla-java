@@ -22,12 +22,15 @@ public class FlightSearchEngine {
         return foundConnectionsTo;
     }
 
-    public List<Flight> searchConnectionThrough(String departureAirport, String changeAirport, String arrivalAirport) {
-        List<Flight>foundConnectionsThrough = searchConnectionFrom(departureAirport).stream()
-                .filter(searchConnectionTo(arrivalAirport)::contains)
+    public void searchConnectionThrough(String departureAirport, String changeAirport, String arrivalAirport) {
+        List<Flight>foundConnectionsToA = searchConnectionFrom(departureAirport).stream()
+                .filter(flight -> flight.getArrivalAirport().equals(changeAirport))
                 .collect(Collectors.toList());
 
-        System.out.println("Available flights to \"" + arrivalAirport + "\" through \"" + changeAirport + "\" : " + foundConnectionsThrough);
-        return foundConnectionsThrough;
+        List<Flight>foundConnectionsToB = searchConnectionTo(arrivalAirport).stream()
+                .filter(flight -> flight.getDepartureAirport().equals(changeAirport))
+                .collect(Collectors.toList());
+
+        System.out.println("Available flights from \"" + departureAirport + "\" through \"" + changeAirport + "\" to \"" + arrivalAirport +" : " + foundConnectionsToA + foundConnectionsToB);
     }
 }
