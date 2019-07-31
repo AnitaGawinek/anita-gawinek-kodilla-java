@@ -14,7 +14,6 @@ public class TaskList {
     }
 
     public TaskList(String listName) {
-        this.id = id;
         this.listName = listName;
         this.description = description;
     }
@@ -22,7 +21,7 @@ public class TaskList {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "ID")
     public int getId() {
         return id;
     }
